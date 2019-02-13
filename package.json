@@ -1,0 +1,44 @@
+{
+  "name": "with-modifiers",
+  "version": "0.0.1",
+  "description": "withModifiers helper",
+  "main": "./dist/index.js",
+  "scripts": {
+    "flow": "flow",
+    "flow:check": "flow check",
+    "build": "npm run build:clean && npm run build:lib && npm run build:flow",
+    "build:clean": "rimraf dist",
+    "build:lib": "cross-env BABEL_ENV=production babel src --out-dir dist --ignore '**/__tests__/**'",
+    "build:flow": "gen-flow-files src --out-dir dist",
+    "prepublish": "npm run flow:check && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ilyalesik/with-modifiers.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Ilya Lesik <ilialesik@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ilyalesik/with-modifiers/issues"
+  },
+  "homepage": "https://github.com/ilyalesik/with-modifiers#readme",
+  "dependencies": {
+    "styled-components-modifiers": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "cross-env": "^5.2.0",
+    "flow-bin": "^0.92.1",
+    "gen-flow-files": "^0.3.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3"
+  }
+}
