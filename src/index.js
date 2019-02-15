@@ -6,7 +6,7 @@ export type TComponentWithModifiers<Modifier> = React$ComponentType<{
     children?: React$Node
 }>;
 
-export default function withModifiers<T: { [string]: any }>(
+export function withModifiers<T: { [string]: any }>(
     config: T,
 ): ((callback: (any) => any) => TComponentWithModifiers<$Keys<T>>) {
     return callback => {
